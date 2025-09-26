@@ -8,19 +8,19 @@
 
 This repository stores code examples of the List component for the [Getting Started with List](https://js.devexpress.com/Documentation/Guide/UI_Components/List/Getting_Started_with_List/) tutorial. The List displays data from a local or remote data storage and allows users to group, select, search, reorder, and delete items. This tutorial explains how to add a List to a page, bind it to data, and configure its core features.
 
-<div align="center"><img src="./list.png" /></div>
+<div align="center"><img src="images/list.png" /></div>
 
 ## Files to Review
 
 - **Angular**
-    - [app.component.html](angular/src/app/app.component.html)
-    - [app.component.ts](angular/src/app/app.component.ts)
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
 - **jQuery**
-    - [index.js](jquery/src/index.js)
+    - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](react/src/App.js)
+    - [App.js](React/src/App.js)
 - **Vue**
-    - [App.vue](vue/src/App.vue)
+    - [App.vue](Vue/src/App.vue)
 
 ## Documentation
 
