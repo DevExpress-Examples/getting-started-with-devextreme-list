@@ -1,4 +1,15 @@
-const products = [
+<script setup lang="ts">
+import type { Employee } from '../types';
+
+import {
+  DxList,
+  DxItemDragging,
+} from 'devextreme-vue/list';
+import DataSource from 'devextreme/data/data_source';
+import notify from 'devextreme/ui/notify';
+import type { DxListTypes } from 'devextreme-vue/list';
+
+const employees: Employee[] = [
   {
     ID: 1,
     Name: 'HD Video Player',
@@ -81,26 +92,46 @@ const products = [
   },
 ];
 
-$(() => {
-  const list = $('#list').dxList({
-    dataSource: new DevExpress.data.DataSource({
-      store: products,
-      group: 'Category',
-    }),
-    displayExpr: 'Name',
-    selectionMode: 'single',
-    grouped: true,
-    searchEnabled: true,
-    searchExpr: ['Name'],
-    itemDragging: {
-      allowReordering: true,
-    },
-    allowItemDeleting: true,
-    onSelectionChanged(e) {
-      const selectedItem = e.addedItems[0];
-      if (selectedItem) {
-        DevExpress.ui.notify(`Selected: ${selectedItem.Name}`, 'info', 2000);
-      }
-    },
-  }).dxList('instance');
+const dataSource = new DataSource({
+  store: employees,
+  group: 'Category',
 });
+
+const handleSelectionChanged = (e: DxListTypes.SelectionChangedEvent): void => {
+  const selectedItem = e.addedItems[0] as Employee;
+  if (selectedItem) {
+    notify(`Selected: ${selectedItem.Name}`, 'info', 2000);
+  }
+};
+</script>
+
+<template>
+  <div id="app-container">
+    <DxList
+      :data-source="dataSource"
+      display-expr="Name"
+      selection-mode="single"
+      :grouped="true"
+      :search-enabled="true"
+      :search-expr="['Name']"
+      :allow-item-deleting="true"
+      @selection-changed="handleSelectionChanged"
+    >
+      <DxItemDragging :allow-reordering="true"/>
+    </DxList>
+  </div>
+</template>
+
+<style scoped>
+#app-container {
+  width: 900px;
+  position: relative;
+  margin: 50px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#list {
+  margin-top: 10px;
+}
+</style>

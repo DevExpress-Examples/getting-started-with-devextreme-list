@@ -1,4 +1,10 @@
-const products = [
+export interface Product {
+  ID: number;
+  Name: string;
+  Category: string;
+}
+
+export const products: Product[] = [
   {
     ID: 1,
     Name: 'HD Video Player',
@@ -80,27 +86,3 @@ const products = [
     Category: 'Automation',
   },
 ];
-
-$(() => {
-  const list = $('#list').dxList({
-    dataSource: new DevExpress.data.DataSource({
-      store: products,
-      group: 'Category',
-    }),
-    displayExpr: 'Name',
-    selectionMode: 'single',
-    grouped: true,
-    searchEnabled: true,
-    searchExpr: ['Name'],
-    itemDragging: {
-      allowReordering: true,
-    },
-    allowItemDeleting: true,
-    onSelectionChanged(e) {
-      const selectedItem = e.addedItems[0];
-      if (selectedItem) {
-        DevExpress.ui.notify(`Selected: ${selectedItem.Name}`, 'info', 2000);
-      }
-    },
-  }).dxList('instance');
-});

@@ -1,3 +1,14 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
+<div id="app-container">
+  <dx-list
+    [dataSource]="dataSource"
+    displayExpr="Name"
+    selectionMode="single"
+    [grouped]="true"
+    [searchEnabled]="true"
+    [searchExpr]="['Name']"
+    [allowItemDeleting]="true"
+    (onSelectionChanged)="onSelectionChanged($event)"
+  >
+    <dxo-item-dragging [allowReordering]="true"> </dxo-item-dragging>
+  </dx-list>
 </div>

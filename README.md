@@ -17,10 +17,12 @@ This repository stores code examples of the List component for the [Getting Star
     - [app.component.ts](Angular/src/app/app.component.ts)
 - **jQuery**
     - [index.js](jQuery/src/index.js)
+    - [index.html](jQuery/src/index.html)
 - **React**
-    - [App.js](React/src/App.js)
+    - [App.tsx](React/src/App.tsx)
 - **Vue**
     - [App.vue](Vue/src/App.vue)
+    - [ListContent.vue](Vue/src/components/ListContent.vue)
 
 ## Documentation
 
