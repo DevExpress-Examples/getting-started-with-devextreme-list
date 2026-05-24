@@ -5,11 +5,13 @@ import { DxListTypes } from 'devextreme-angular/ui/list';
 import { Product } from './app.types';
 import { AppService } from './app.service';
 
+import { DxListModule } from 'devextreme-angular/ui/list';
+
 @Component({
     selector: 'app-root',
+    imports: [DxListModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
 })
 export class AppComponent {
   dataSource: DataSource;
