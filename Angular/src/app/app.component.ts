@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import notify from 'devextreme/ui/notify';
 import { DxListTypes } from 'devextreme-angular/ui/list';
@@ -11,6 +11,7 @@ import { DxListModule } from 'devextreme-angular/ui/list';
     selector: 'app-root',
     imports: [DxListModule],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
